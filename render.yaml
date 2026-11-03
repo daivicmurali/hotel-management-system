@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: grand-horizon-hms
+    runtime: node
+    plan: free
+    region: frankfurt # Low-latency EU region serving UK with Cloudflare edge in London
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d

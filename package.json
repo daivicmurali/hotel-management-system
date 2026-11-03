@@ -1,0 +1,18 @@
+{
+  "name": "grand-horizon-hotel-management-system",
+  "version": "1.0.0",
+  "description": "Modern Hotel Management System with Dynamic Billing",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev:backend": "cd backend && node server.js",
+    "dev:frontend": "cd frontend && npm.cmd run dev",
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"blue,green\" \"cd backend && node server.js\" \"cd frontend && npm.cmd run dev\"",
+    "build": "npm --prefix backend install && npm --prefix frontend install && npm --prefix frontend run build",
+    "seed": "node backend/utils/seed.js",
+    "start": "node backend/server.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "localtunnel": "^2.0.2"
+  }
+}
